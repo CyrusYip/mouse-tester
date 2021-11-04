@@ -1,6 +1,20 @@
-// define elements
-let button = document.querySelector("#button");
+// define elements and functions
+const button = document.querySelector("#button");
 let log = document.querySelector("#log");
+changeColor = (delay = 200) => {
+  log.textContent = "";
+  log.className = "blackColor";
+  button.className = "whiteBackground";
+  setTimeout(() => {
+    log.className = "redColor";
+    button.className = "pinkBackground";
+  }, delay);
+};
+modifyLog = (text, delay = 200) => {
+  setTimeout(() => {
+    log.textContent = text;
+  }, delay);
+};
 
 // disable forward button and back button
 modifyHistory = () => {
@@ -17,30 +31,20 @@ button.addEventListener("contextmenu", (e) => {
 });
 
 // detect click
-button.addEventListener("mousedown", logMouseButton);
-function logMouseButton(e) {
-  if (e.button === 0) {
-    log.textContent = "left button";
-  } else if (e.button === 1) {
-    log.textContent = "middle button";
-  } else if (e.button === 2) {
-    log.textContent = "right button";
-  } else if (e.button === 3) {
-    log.textContent = "back button";
-  } else if (e.button === 4) {
-    log.textContent = "forward button";
-  } else {
-    log.textContent = `unknown button code: ${e.button}`;
-  }
-}
+const buttonPairs = {
+  0: "left button",
+  1: "middle button",
+  2: "right button",
+  3: "back button",
+  4: "forward button",
+};
+button.addEventListener("mousedown", (e) => {
+  changeColor();
+  modifyLog(buttonPairs[e.button]);
+});
 
 // detect scroll
-button.addEventListener("wheel", logScroll);
-function logScroll(e) {
-  console.log(e);
-  if (e.deltaY < 0) {
-    log.textContent = "scroll forward";
-  } else if (e.deltaY > 0) {
-    log.textContent = "scroll backward";
-  }
-}
+button.addEventListener("wheel", (e) => {
+  changeColor();
+  e.deltaY < 0 ? modifyLog("scroll forward") : modifyLog("scroll backward");
+});
