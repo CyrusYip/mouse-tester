@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useState } from 'react'
 
 function App() {
@@ -9,6 +10,13 @@ function App() {
     // Disable context menu
     e.preventDefault()
   }
+  useEffect(() => {
+    // Disable back button and forward button
+    history.pushState(null, document.title, location.href)
+    window.addEventListener('popstate', () => {
+      history.pushState(null, document.title, location.href)
+    })
+  }, [])
 
   return (
     <>
