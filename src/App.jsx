@@ -1,25 +1,22 @@
 import { useState } from 'react'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [clickEvent, setClickEvent] = useState(0)
+  const handleMouseDown = e => {
+    setClickEvent(e)
+  }
+  const handleContextMenu = e => {
+    // Disable context menu
+    e.preventDefault()
+  }
 
   return (
     <>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-      <h1>Vite + React</h1>
-      <div>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className='flex flex-col items-center justify-center min-h-dvh'>
+        <h1 className="text-3xl font-bold">Mouse Tester</h1>
+        <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded shadow-lg w-full md:w-auto" onMouseDown={handleMouseDown} onContextMenu={handleContextMenu}>Click me</button>
+        <p>Clicked button: {clickEvent.button}</p>
       </div>
-      <p>
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
