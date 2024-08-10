@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 
 function App() {
-  const [buttonCount, setButtonCount] = useState({
+  const [buttonCounts, setButtonCounts] = useState({
     left: 0,
     middle: 0,
     right: 0,
@@ -18,9 +18,9 @@ function App() {
   }
   const handleMouseDown = e => {
     const button = buttonMap[e.button.toString()]
-    const count = buttonCount[button]
-    setButtonCount({
-      ...buttonCount,
+    const count = buttonCounts[button]
+    setButtonCounts({
+      ...buttonCounts,
       [button]: count + 1
     })
   }
@@ -50,23 +50,23 @@ function App() {
           <tbody>
             <tr>
               <td className='border' title='Right button on left-handed mouse'>Left</td>
-              <td className='border'>{buttonCount.left}</td>
+              <td className='border'>{buttonCounts.left}</td>
             </tr>
             <tr>
               <td className='border'>Middle</td>
-              <td className='border'>{buttonCount.middle}</td>
+              <td className='border'>{buttonCounts.middle}</td>
             </tr>
             <tr>
               <td className='border' title='Left button on left-handed mouse'>Right</td>
-              <td className='border'>{buttonCount.right}</td>
+              <td className='border'>{buttonCounts.right}</td>
             </tr>
             <tr>
               <td className='border'>Back</td>
-              <td className='border'>{buttonCount.back}</td>
+              <td className='border'>{buttonCounts.back}</td>
             </tr>
             <tr>
               <td className='border'>Forward</td>
-              <td className='border'>{buttonCount.forward}</td>
+              <td className='border'>{buttonCounts.forward}</td>
             </tr>
           </tbody>
         </table>
