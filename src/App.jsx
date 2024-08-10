@@ -38,7 +38,7 @@ function App() {
 
   return (
     <>
-      <div className='flex flex-col items-center justify-center min-h-dvh py-4'>
+      <div className='flex flex-col items-center justify-center min-h-dvh py-4 text-2xl'>
         <button className='bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded' onMouseDown={handleMouseDown} onContextMenu={handleContextMenu}>Click test</button>
         <table className='border mt-1'>
           <thead>
