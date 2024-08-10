@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 
 function App() {
+  const [lastClicked, setLastClicked] = useState()
   const [buttonCounts, setButtonCounts] = useState({
     left: 0,
     middle: 0,
@@ -19,6 +20,7 @@ function App() {
   const handleMouseDown = e => {
     const button = buttonMap[e.button.toString()]
     const count = buttonCounts[button]
+    setLastClicked(button)
     setButtonCounts({
       ...buttonCounts,
       [button]: count + 1
@@ -40,6 +42,7 @@ function App() {
     <>
       <div className='flex flex-col items-center justify-center min-h-dvh py-4 text-2xl'>
         <button className='bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded' onMouseDown={handleMouseDown} onContextMenu={handleContextMenu}>Click test</button>
+        <p>Clicked: {lastClicked}</p>
         <table className='border mt-1'>
           <thead>
             <tr>
