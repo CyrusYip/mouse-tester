@@ -31,7 +31,7 @@ function App() {
     e.preventDefault()
   }
   useEffect(() => {
-    // Disable back button and forward button
+    // Avoid changing history when clicking forward/back buttons
     history.pushState(null, document.title, location.href)
     window.addEventListener('popstate', () => {
       history.pushState(null, document.title, location.href)
@@ -40,17 +40,25 @@ function App() {
 
   return (
     <>
-      <div className='flex flex-col items-center justify-center min-h-dvh py-4 text-2xl'>
-        <div> {/* Wrapper */}
-          <button className='bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded' onMouseDown={handleMouseDown} onContextMenu={handleContextMenu}>Click test</button>
+      <div className='flex flex-col items-center justify-between min-h-vh min-h-dvh py-4 text-2xl'> {/* Fixed header/footer, center main */}
+        <header>
+          <h1 className='font-bold text-3xl'>Mouse tester</h1>
+        </header>
+        <main className='grid grid-cols-2 grid-rows-2 gap-4'> {/* Two-column layout */}
+          <button className='bg-blue-500 hover:bg-blue-600 text-white font-semibold col-start-1 row-start-1' onMouseDown={handleMouseDown} onContextMenu={handleContextMenu}>Click test</button>
+          <div className='border h-[112px] px-2 overflow-y-auto col-start-1 row-start-2'>
+            <p className='text-center font-semibold text-blue-500'>Scroll test</p>
+            <div className='h-[1000px]'></div>
+            <p className='text-center font-semibold text-blue-500'>This is the end</p>
+          </div>
           {/* Status */}
-          <div>
+          <div className='col-start-2 row-start-1 row-span-2'>
             <p>Clicked: {lastClicked}</p>
-            <table className='border mt-1'>
+            <table className='border'>
               <thead>
                 <tr>
-                  <th scope="col" className='border text-left'>Button</th>
-                  <th scope="col" className='border text-left'>Count</th>
+                  <th scope="col" className='border text-left font-semibold'>Button</th>
+                  <th scope="col" className='border text-left font-semibold'>Count</th>
                 </tr>
               </thead>
               <tbody>
@@ -67,7 +75,7 @@ function App() {
                   <td className='border'>{buttonCounts.right}</td>
                 </tr>
                 <tr>
-                  <td className='border'>Back <sup className='hover:cursor-help' title="Detection of back button and forward button doesn't work on Firefox">?</sup></td>
+                  <td className='border'>Back</td>
                   <td className='border'>{buttonCounts.back}</td>
                 </tr>
                 <tr>
@@ -77,13 +85,11 @@ function App() {
               </tbody>
             </table>
           </div>
-          <div className='border h-[100px] mt-8 px-2 overflow-y-auto'>
-            <p className='text-center font-bold text-blue-500'>Scroll test</p>
-            <div className='h-[1000px]'></div>
-            <p className='text-center font-bold text-blue-500'>This is the end</p>
-          </div>
-          <p className='text-blue-500 mt-8'><a href="https://github.com/CyrusYip/mouse-tester/">Source code</a></p>
-        </div>
+        </main>
+        <footer className='text-center'>
+          <p title='Detection of back/forward buttons does not work on Firefox'>It&apos;s recommended to use Chrome</p>
+          <p className='text-blue-500'><a title='Source code' href="https://github.com/CyrusYip/mouse-tester/">CyrusYip/mouse-tester</a></p>
+        </footer>
       </div>
     </>
   )
