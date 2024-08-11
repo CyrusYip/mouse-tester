@@ -41,46 +41,49 @@ function App() {
   return (
     <>
       <div className='flex flex-col items-center justify-center min-h-dvh py-4 text-2xl'>
-        <button className='bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded' onMouseDown={handleMouseDown} onContextMenu={handleContextMenu}>Click test</button>
-        {/* Status */}
-        <p>Clicked: {lastClicked}</p>
-        <table className='border mt-1'>
-          <thead>
-            <tr>
-              <th scope="col" className='border text-left'>Button</th>
-              <th scope="col" className='border text-left'>Count</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className='border' title='Right button on left-handed mouse'>Left</td>
-              <td className='border'>{buttonCounts.left}</td>
-            </tr>
-            <tr>
-              <td className='border'>Middle</td>
-              <td className='border'>{buttonCounts.middle}</td>
-            </tr>
-            <tr>
-              <td className='border' title='Left button on left-handed mouse'>Right</td>
-              <td className='border'>{buttonCounts.right}</td>
-            </tr>
-            <tr>
-              <td className='border'>Back <sup className='hover:cursor-help' title="Detection of back button and forward button doesn't work on Firefox">?</sup></td>
-              <td className='border'>{buttonCounts.back}</td>
-            </tr>
-            <tr>
-              <td className='border'>Forward</td>
-              <td className='border'>{buttonCounts.forward}</td>
-            </tr>
-          </tbody>
-        </table>
-        {/* Status */}
-        <div className='border h-[100px] mt-8 px-2 overflow-y-auto'>
-          <p className='text-center font-bold text-blue-500'>Scroll test</p>
-          <div className='h-[1000px]'></div>
-          <p className='text-center font-bold text-blue-500'>This is the end</p>
+        <div> {/* Wrapper */}
+          <button className='bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded' onMouseDown={handleMouseDown} onContextMenu={handleContextMenu}>Click test</button>
+          {/* Status */}
+          <div>
+            <p>Clicked: {lastClicked}</p>
+            <table className='border mt-1'>
+              <thead>
+                <tr>
+                  <th scope="col" className='border text-left'>Button</th>
+                  <th scope="col" className='border text-left'>Count</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className='border' title='Right button on left-handed mouse'>Left</td>
+                  <td className='border'>{buttonCounts.left}</td>
+                </tr>
+                <tr>
+                  <td className='border'>Middle</td>
+                  <td className='border'>{buttonCounts.middle}</td>
+                </tr>
+                <tr>
+                  <td className='border' title='Left button on left-handed mouse'>Right</td>
+                  <td className='border'>{buttonCounts.right}</td>
+                </tr>
+                <tr>
+                  <td className='border'>Back <sup className='hover:cursor-help' title="Detection of back button and forward button doesn't work on Firefox">?</sup></td>
+                  <td className='border'>{buttonCounts.back}</td>
+                </tr>
+                <tr>
+                  <td className='border'>Forward</td>
+                  <td className='border'>{buttonCounts.forward}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className='border h-[100px] mt-8 px-2 overflow-y-auto'>
+            <p className='text-center font-bold text-blue-500'>Scroll test</p>
+            <div className='h-[1000px]'></div>
+            <p className='text-center font-bold text-blue-500'>This is the end</p>
+          </div>
+          <p className='text-blue-500 mt-8'><a href="https://github.com/CyrusYip/mouse-tester/">Source code</a></p>
         </div>
-        <p className='text-blue-500 mt-8'><a href="https://github.com/CyrusYip/mouse-tester/">Source code</a></p>
       </div>
     </>
   )
