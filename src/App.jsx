@@ -65,7 +65,7 @@ function App() {
               <td className='border'>{buttonCounts.right}</td>
             </tr>
             <tr>
-              <td className='border'>Back</td>
+              <td className='border'>Back <sup className='hover:cursor-help' title="Detection of back button and forward button doesn't work on Firefox">?</sup></td>
               <td className='border'>{buttonCounts.back}</td>
             </tr>
             <tr>
