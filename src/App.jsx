@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useState } from 'react'
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 function App() {
   const [lastClicked, setLastClicked] = useState()
@@ -85,10 +86,7 @@ function App() {
             </table>
           </div>
         </main>
-        <footer className='text-center'>
-          <p title='Detection of back/forward buttons does not work on Firefox'>It&apos;s recommended to use Chrome</p>
-          <p className='text-blue-500'><a title='Source code' href="https://github.com/CyrusYip/mouse-tester/">CyrusYip/mouse-tester</a></p>
-        </footer>
+        <Footer />
       </div>
     </>
   )
