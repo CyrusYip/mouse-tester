@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useState } from 'react'
+import Header from './components/Header'
 
 function App() {
   const [lastClicked, setLastClicked] = useState()
@@ -41,9 +42,7 @@ function App() {
   return (
     <>
       <div className='flex flex-col items-center justify-between min-h-vh min-h-dvh py-4 text-2xl'> {/* Fixed header/footer, center main */}
-        <header>
-          <h1 className='font-bold text-3xl'>Mouse tester</h1>
-        </header>
+        <Header />
         <main className='grid grid-cols-2 grid-rows-2 gap-4'> {/* Two-column layout */}
           <button className='bg-blue-500 hover:bg-blue-600 text-white font-semibold col-start-1 row-start-1' onMouseDown={handleMouseDown} onContextMenu={handleContextMenu}>Click test</button>
           <div className='border h-[112px] px-2 overflow-y-auto col-start-1 row-start-2'>
