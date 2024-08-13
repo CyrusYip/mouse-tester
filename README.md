@@ -4,6 +4,10 @@
 
 Test buttons and the wheel online.
 
+## Motivation
+
+One day, some buttons of my mouse weren't working. I didn't want to install any software just to test it, and the websites I tried looked too complicated. Therefore, I decided to create a minimal mouse tester.
+
 ## Development
 
 ```shell
