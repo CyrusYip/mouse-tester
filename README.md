@@ -23,7 +23,7 @@ pnpm run preview
 
 ## Known issues
 
-Detection of back button and forward button doesn't work on Firefox, because [mousedown event](https://developer.mozilla.org/en-US/docs/Web/API/Element/mousedown_event) is not fired when these two buttons are clicked.
+[Firefox can't detect back button and forward button](https://stackoverflow.com/questions/78858617/how-to-detect-back-button-and-forward-button-in-firefox), because [mousedown event](https://developer.mozilla.org/en-US/docs/Web/API/Element/mousedown_event) is not fired when these two buttons are clicked.
 
 ## License
 
