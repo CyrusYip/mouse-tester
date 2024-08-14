@@ -43,7 +43,7 @@ function App() {
 
   return (
     <>
-      <div className='flex flex-col items-center justify-between min-h-vh min-h-dvh py-4 text-2xl'> {/* Fixed header/footer, center main */}
+      <div className='flex flex-col items-center justify-between min-h-vh min-h-dvh p-4 text-2xl'> {/* Fixed header/footer, center main */}
         <Header />
         <Main
           onMouseDown={handleMouseDown}
