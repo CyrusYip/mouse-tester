@@ -17,7 +17,7 @@ pnpm install
 pnpm run dev
 # Build
 pnpm run build
-# Preview
+# Preview built website
 pnpm run preview
 ```
 
